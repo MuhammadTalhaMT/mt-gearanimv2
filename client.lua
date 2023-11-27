@@ -51,7 +51,7 @@ function DetectGearChange()
     local blacklist = false
     local vehclass = GetVehicleClass(vehicle)
     local vehicleName = GetEntityModel(vehicle)
-if vehicle ~= 0 then
+if vehicle ~= 0 and GetPedInVehicleSeat(GetVehiclePedIsIn(ped), -1) then
     if vehclass ~= 8 and vehclass ~= 13 and playanim == true then
       for k, v in ipairs(Config.RHDCars) do
         if vehicleName == GetHashKey(v) then
