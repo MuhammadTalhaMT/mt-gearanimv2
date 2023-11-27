@@ -7,6 +7,7 @@ local RanimationName = "outro_90l"
 local animationDuration = Config.animationDuration
 
 function LPlayGearChangeAnimation(gear)
+if GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() then
     RequestAnimDict(LanimationDict)
     while not HasAnimDictLoaded(LanimationDict) do
         Citizen.Wait(0)
@@ -16,8 +17,10 @@ function LPlayGearChangeAnimation(gear)
     Citizen.Wait(animationDuration)
     StopAnimTask(PlayerPedId(), LanimationDict, LanimationName, 1.0)
 end
+end
 
 function RPlayGearChangeAnimation(gear)
+if GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() then 
     RequestAnimDict(RanimationDict)
     while not HasAnimDictLoaded(RanimationDict) do
         Citizen.Wait(0)
@@ -26,6 +29,7 @@ function RPlayGearChangeAnimation(gear)
 
     Citizen.Wait(animationDuration)
     StopAnimTask(PlayerPedId(), RanimationDict, RanimationName, 1.0)
+end
 end
 
 function OnGearChange(newGear, rhd, blacklist)
@@ -51,7 +55,7 @@ function DetectGearChange()
     local blacklist = false
     local vehclass = GetVehicleClass(vehicle)
     local vehicleName = GetEntityModel(vehicle)
-if vehicle ~= 0 and GetPedInVehicleSeat(GetVehiclePedIsIn(ped), -1) then
+if vehicle ~= 0 then
     if vehclass ~= 8 and vehclass ~= 13 and playanim == true then
       for k, v in ipairs(Config.RHDCars) do
         if vehicleName == GetHashKey(v) then
