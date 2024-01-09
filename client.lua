@@ -12,7 +12,7 @@ if GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() th
     while not HasAnimDictLoaded(LanimationDict) do
         Citizen.Wait(0)
     end
-    TaskPlayAnim(PlayerPedId(), LanimationDict, LanimationName, 8.0, 1.0, animationDuration, 48, 0, 0, 0, 0)
+    TaskPlayAnim(PlayerPedId(), LanimationDict, LanimationName, 8.0, 1.0, animationDuration, 16, 0, 0, 0, 0)
 
     Citizen.Wait(animationDuration)
     StopAnimTask(PlayerPedId(), LanimationDict, LanimationName, 1.0)
@@ -25,7 +25,7 @@ if GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId()), -1) == PlayerPedId() th
     while not HasAnimDictLoaded(RanimationDict) do
         Citizen.Wait(0)
     end
-    TaskPlayAnim(PlayerPedId(), RanimationDict, RanimationName, 8.0, 1.0, animationDuration, 48, 0, 0, 0, 0)
+    TaskPlayAnim(PlayerPedId(), RanimationDict, RanimationName, 8.0, 1.0, animationDuration, 16, 0, 0, 0, 0)
 
     Citizen.Wait(animationDuration)
     StopAnimTask(PlayerPedId(), RanimationDict, RanimationName, 1.0)
